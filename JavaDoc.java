@@ -301,4 +301,84 @@ refer to:https://www.w3resource.com/java-exercises/basic/java-basic-exercise-60.
 Java program to capitalize the first letter of each word in a sentence.
 
 refer to: https://www.w3resource.com/java-exercises/basic/java-basic-exercise-58.php
-**---------------------------------------------------------------------------------	
+**---------------------------------------------------------------------------------
+Java program with 2D arrays
+
+import java.util.*;
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Scanner scn = new Scanner(System.in);
+		System.out.println("Enter row and column number: ");
+		int r = scn.nextInt();
+		int c = scn.nextInt();
+		int[][] arr = new int[r][c];
+		
+		System.out.println("Enter array elements:");
+		for(int i = 0;i<arr.length;i++) {
+			for(int j = 0;j< arr[0].length;j++) {
+				arr[i][j]=scn.nextInt();
+			}
+		}
+		
+		System.out.println("The sum is:"+sums(arr));
+		System.out.println("The largest value in the array is: "+maxi(arr));
+		
+		swap(arr);
+		System.out.println("After swap:");
+		printer(arr);
+		
+	}
+	static int sums(int[][] x ) {
+		int sum = 0;
+		
+		for(int i = 0;i<x.length;i++) {
+			for(int j = 0;j< x[0].length;j++) {
+				sum+=x[i][j];
+			}
+		}
+		return sum;
+	}
+	
+	static void swap(int[][] x) {
+		int temp;
+		for(int i = 0;i<x.length;i++) {
+			for(int j = 0;j<x[0].length;j++) {
+				if(i==0) {
+					temp = x[x.length-1][j];
+					x[x.length-1][j] = x[i][j];
+					x[i][j] = temp;
+				}
+			}
+		}
+	}
+	
+	static int maxi(int[][] x) {
+		int max = x[0][0];
+		for(int i = 0;i<x.length;i++) {
+			for(int j = 0;j< x[0].length;j++) {
+				if(x[i][j]>max) {
+					max = x[i][j];
+				}
+			}
+		}
+		return max;
+	}
+	
+	static void printer(int[][]x) {
+		for(int i = 0;i<x.length;i++) {
+			for(int j = 0;j< x[0].length;j++) {
+				System.out.print(x[i][j]+" ");
+			}
+		}
+		
+	}
+	
+	
+}
+
+
+	
